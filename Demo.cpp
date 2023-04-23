@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+
 using namespace std;
 
 #include "sources/player.hpp"
@@ -21,7 +22,7 @@ int main() {
    Player p1("Alice");
    Player p2("Bob");
 
-   Game game(p1,p2); 
+   Game game(p1,p2);
    for (int i=0;i<5;i++) {
     game.playTurn();
    }
