@@ -1,28 +1,37 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
 #include <vector>
+#include "card.hpp"
 
 using namespace std;
 
 class Player
 {
     private:
-    string name;
+    std::string name;
     std::vector<Card> deck;
     int cardsWon;
+    int numOfWons;
     Card lastCard;
     public:
     Player(std::string name);
-    int nextCard();
+    void nextCard();
     int stacksize();
     int cardesTaken();
     vector<Card> getDeck(){return this->deck;}
-    vector<Card> setDeck(vector<Card> deck){this->deck = deck;}
+    void setDeck(vector<Card> deck);
     Card getLastCard(){return this->lastCard;}
-    void setLastCard(Card c){this->lastCard = c;}
+    void setLastCard(Card card){this->lastCard = card;}
     string getName(){return this->name;}
-    int getCardsWon(){return this->cardsWon;}
-    void addCardsWon(int add){this->cardsWon+add;}
+    int getCardsWon() const{return this->cardsWon;}
+    void addCardsWon(int add){this->cardsWon+=add;}
+    int getNumOfWons() const{return this->numOfWons;}
+    void increaseNumWinning(){this->numOfWons++;}
+    
 };
+
+#endif

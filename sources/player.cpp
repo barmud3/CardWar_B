@@ -7,12 +7,11 @@
 
 using namespace std;
 
-Player::Player(std::string name){
-    this->name = name;
-    this->cardsWon = 0;
+Player::Player(std::string name): 
+name(name) , deck({}) , cardsWon(0) , numOfWons(0) , lastCard(Card()){
 };
 
-int Player::nextCard()
+void Player::nextCard()
 {
     if(!this->deck.empty())
     {
@@ -28,5 +27,14 @@ int Player::stacksize()
 
 int Player::cardesTaken()
 {
-    cout << "Player : " << this->name << "won until now : " << this->cardsWon << " cards.";
+    cout << "Player : " << this->name << " won until now : " << this->cardsWon << " cards." << endl;
+    return this->cardsWon;
 };
+
+void Player::setDeck(vector<Card> deck)
+{
+    for (auto i=deck.begin(); i!=deck.end(); i++) 
+    {
+        this->deck.push_back(*i);
+    }
+}

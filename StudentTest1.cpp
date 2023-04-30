@@ -98,3 +98,5 @@ TEST_CASE("The game ends after at most 26 turns")
     CHECK(p2.stacksize() == 0);
 }
 
+
+
